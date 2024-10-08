@@ -7,132 +7,153 @@
     <style>
         * {
             box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
         }
         .container {
-            width: 100%;
-            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        h2, h3 {
+            color: #34495e;
+            margin-bottom: 15px;
         }
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         .row {
             display: flex;
-            justify-content: space-around;
-            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
         }
-        .panel {
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
             flex: 1;
-            margin: 10px;
-            padding: 20px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            min-width: 280px;
+            transition: transform 0.3s ease;
         }
-        .panel.employee {
-            background-color: #28a745;
+        .card:hover {
+            transform: translateY(-10px);
         }
         .pipeline {
             display: flex;
-            justify-content: space-around;
-            padding: 20px;
-            background-color: #eaeaea;
+            gap: 15px;
+            margin-top: 10px;
         }
         .pipeline div {
-            background-color: #ffc107;
-            padding: 20px;
-            text-align: center;
-            font-weight: bold;
             flex: 1;
-            margin: 0 5px;
-            border-radius: 5px;
+            padding: 15px;
+            background-color: #eaf0f6;
+            border-radius: 10px;
+            color: #34495e;
+            text-align: center;
+            font-weight: 600;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            background-color: #fff;
-            margin-bottom: 20px;
-            overflow: auto;
+            margin-top: 10px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        table th, table td {
-            padding: 10px;
-            border: 1px solid #ddd;
+        th, td {
+            padding: 15px;
             text-align: left;
+            font-size: 14px;
         }
-        table th {
-            background-color: #007bff;
-            color: #fff;
+        th {
+            background-color: #34495e;
+            color: #ffffff;
+        }
+        td {
+            background-color: #f7f9fc;
+            border-bottom: 1px solid #e0e0e0;
         }
         button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 10px 20px;
             border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #2980b9;
         }
         .table-container {
-            max-height: 300px;
+            max-height: 250px;
             overflow-y: auto;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
         }
         .chart-container {
             display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
+            gap: 20px;
+            justify-content: center;
         }
         .chart {
-            width: 40%;
-            height: 300px;
-            background-color: #fff;
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background-color: #ffffff;
+            border-radius: 12px;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <!-- Task and Employee Overview Panels -->
-        <div class="row section">
-            <div class="panel">
-                <h2>Task Overview</h2>
-                <p>All Task: 20</p>
-                <p>Assigned Task: 15</p>
-                <p>Unassigned Task: 5</p>
-            </div>
-            <div class="panel employee">
-                <h2>Employee Overview</h2>
-                <p>All Employee: 50</p>
-                <p>Assigned Employee: 45</p>
-                <p>Unassigned Employee: 5</p>
+        <!-- Task Overview -->
+        <div class="section">
+            <h2>Task Overview</h2>
+            <div class="row">
+                <div class="card">
+                    <h3>All Tasks</h3>
+                    <p>20</p>
+                </div>
+                <div class="card">
+                    <h3>Assigned Tasks</h3>
+                    <p>15</p>
+                </div>
+                <div class="card">
+                    <h3>Self Assigned Tasks</h3>
+                    <p>5</p>
+                </div>
             </div>
         </div>
 
         <!-- Task Status Pipeline -->
-        <div class="pipeline section">
-            <div>OPEN <br> 5</div>
-            <div>Awaiting Approval <br> 2</div>
-            <div>Overdue <br> 1</div>
-            <div>Closed <br> 15</div>
-            <div>In Progress <br> 25</div>
+        <div class="section">
+            <h2>Task Status</h2>
+            <div class="pipeline">
+                <div>OPEN<br>5</div>
+                <div>Awaiting Approval<br>2</div>
+                <div>Overdue<br>1</div>
+                <div>Completed<br>4</div>
+                <div>In Progress<br>8</div>
+            </div>
         </div>
 
         <!-- Pending Task Table -->
         <div class="section">
-            <h3>Pending Task</h3>
+            <h3>Pending Tasks</h3>
             <div class="table-container">
                 <table>
                     <thead>
@@ -141,102 +162,23 @@
                             <th>Priority</th>
                             <th>Task Name</th>
                             <th>Status</th>
-                            <th>Task Description</th>
+                            <th>Description</th>
                             <th>Start Date</th>
                             <th>End Date</th>
-                            <th>Action</th>
+                            <th>Progress</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- 15 Sample Rows -->
                         <script>
                             for (let i = 1; i <= 15; i++) {
                                 document.write(`<tr>
-                                    <td>00${i}</td>
+                                    <td>#${i}</td>
                                     <td>High</td>
                                     <td>Task ${i}</td>
                                     <td>Open</td>
                                     <td>Description ${i}</td>
                                     <td>2024-10-01</td>
                                     <td>2024-10-10</td>
-                                    <td><button>Assign Employee</button></td>
-                                </tr>`);
-                            }
-                        </script>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Employee Load Table -->
-        <div class="section">
-            <h3>Employee Load</h3>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Emp ID</th>
-                            <th>Emp Name</th>
-                            <th>Total Task Count</th>
-                            <th>Total Hours Consumed</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- 15 Sample Rows -->
-                        <script>
-                            for (let i = 1; i <= 15; i++) {
-                                document.write(`<tr>
-                                    <td>101${i}</td>
-                                    <td>Employee ${i}</td>
-                                    <td>${Math.floor(Math.random() * 10) + 1}</td>
-                                    <td>${Math.floor(Math.random() * 50) + 1}</td>
-                                    <td><button>Assign Task</button></td>
-                                </tr>`);
-                            }
-                        </script>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Employee Task Count (Bar Chart) -->
-        <div class="section">
-            <h3>Employee Task Count</h3>
-            <div class="chart-container">
-                <div class="chart">
-                    <canvas id="barChart"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- Assigned Task Report Table -->
-        <div class="section">
-            <h3>Assigned Task Report</h3>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Task ID</th>
-                            <th>Task Name</th>
-                            <th>Assigner</th>
-                            <th>Assignee</th>
-                            <th>Status</th>
-                            <th>Start Date</th>
-                            <th>Progress</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- 30 Sample Rows -->
-                        <script>
-                            for (let i = 1; i <= 30; i++) {
-                                document.write(`<tr>
-                                    <td>00${i}</td>
-                                    <td>Task ${i}</td>
-                                    <td>Assigner ${i}</td>
-                                    <td>Assignee ${i}</td>
-                                    <td>In Progress</td>
-                                    <td>2024-10-02</td>
                                     <td><progress value="${Math.floor(Math.random() * 100)}" max="100"></progress></td>
                                 </tr>`);
                             }
@@ -246,73 +188,85 @@
             </div>
         </div>
 
-        <!-- Pie Charts -->
+        <!-- Completed Task Table -->
+        <div class="section">
+            <h3>Completed Tasks</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Task ID</th>
+                            <th>Task Name</th>
+                            <th>Assigned Date</th>
+                            <th>Completed Date</th>
+                            <th>Total Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <script>
+                            for (let i = 1; i <= 15; i++) {
+                                let hours = Math.floor(Math.random() * 10) + 1;
+                                document.write(`<tr>
+                                    <td>#C${i}</td>
+                                    <td>Task ${i}</td>
+                                    <td>2024-09-0${i}</td>
+                                    <td>2024-09-1${i}</td>
+                                    <td>${hours} hrs</td>
+                                </tr>`);
+                            }
+                        </script>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Charts in the same row -->
         <div class="chart-container">
             <div class="chart">
-                <canvas id="priorityPieChart"></canvas>
+                <canvas id="priorityChart"></canvas>
             </div>
             <div class="chart">
-                <canvas id="taskPieChart"></canvas>
+                <canvas id="statusChart"></canvas>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript for Charts -->
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Employee Task Count Bar Chart
-        const barCtx = document.getElementById('barChart').getContext('2d');
-        const barChart = new Chart(barCtx, {
-            type: 'bar',
+        const priorityChart = new Chart(document.getElementById('priorityChart'), {
+            type: 'doughnut',
             data: {
-                labels: ['John', 'Jane', 'Michael', 'Sarah', 'David'],
+                labels: ['High', 'Medium', 'Low'],
                 datasets: [{
-                    label: 'Total Task Count',
-                    data: [12, 15, 10, 8, 7], // Sorted in descending order
-                    backgroundColor: '#007bff'
+                    data: [10, 15, 5],
+                    backgroundColor: ['#e74c3c', '#f39c12', '#3498db']
                 }]
             },
             options: {
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Employee Name'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Task Count'
-                        }
+                plugins: {
+                    legend: {
+                        position: 'top'
                     }
                 }
             }
         });
 
-        // Priority Pie Chart
-        const priorityCtx = document.getElementById('priorityPieChart').getContext('2d');
-        const priorityPieChart = new Chart(priorityCtx, {
-            type: 'pie',
+        const statusChart = new Chart(document.getElementById('statusChart'), {
+            type: 'doughnut',
             data: {
-                labels: ['Urgent', 'Medium', 'Low'],
+                labels: ['Completed On Time', 'Delayed', 'Completed Before Time'],
                 datasets: [{
-                    data: [3, 6, 11],
-                    backgroundColor: ['#dc3545', '#ffc107', '#28a745']
+                    data: [10, 20, 15],
+                    backgroundColor: ['#8e44ad', '#2ecc71', '#3498db']
                 }]
-            }
-        });
-
-        // Task Status Pie Chart
-        const taskCtx = document.getElementById('taskPieChart').getContext('2d');
-        const taskPieChart = new Chart(taskCtx, {
-            type: 'pie',
-            data: {
-                labels: ['All Task', 'Assigned Task', 'Unassigned Task'],
-                datasets: [{
-                    data: [20, 15, 5],
-                    backgroundColor: ['#007bff', '#28a745', '#ffc107']
-                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                }
             }
         });
     </script>
